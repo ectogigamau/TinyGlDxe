@@ -1,0 +1,71 @@
+[Defines]
+  INF_VERSION                    = 0x00010006
+  BASE_NAME                      = TinyGlDxe
+  FILE_GUID                      = a11690d0-a9b7-4d26-9cd0-11b880cd9610
+  MODULE_TYPE                    = UEFI_APPLICATION
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = EntryPoint
+
+[Sources.common]
+  tinygl/src/accum.c
+  tinygl/src/api.c
+  tinygl/src/arrays.c
+  tinygl/src/clear.c
+  tinygl/src/clip.c
+  tinygl/src/get.c
+  tinygl/src/image_util.c
+  tinygl/src/init.c
+  tinygl/src/light.c
+  tinygl/src/list.c
+  tinygl/src/matrix.c
+  tinygl/src/memory.c
+  tinygl/src/misc.c
+  tinygl/src/msghandling.c
+  tinygl/src/select.c
+  tinygl/src/specbuf.c
+  tinygl/src/texture.c
+  tinygl/src/vertex.c
+  tinygl/src/zbuffer.c
+  tinygl/src/zline.c
+  tinygl/src/zmath.c
+  tinygl/src/zpostprocess.c
+  tinygl/src/zraster.c
+  tinygl/src/ztext.c
+  tinygl/src/ztriangle.c
+
+  gears.c
+  
+[Packages]
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  StdLib/StdLib.dec
+
+[LibraryClasses.common]
+  UefiBootServicesTableLib
+  UefiApplicationEntryPoint
+  MemoryAllocationLib
+  BaseMemoryLib
+  DebugLib
+  LibC
+  LibMath
+  
+[Guids]
+
+
+[Protocols]
+
+
+[FixedPcd.common]
+
+[Pcd.common]
+
+[Protocols]
+  gEfiGraphicsOutputProtocolGuid
+
+[Depex]
+  TRUE
+
+
+[BuildOptions]
+  MSFT:*_*_*_CC_FLAGS = /W1
+  MSFT:*_*_*_DLINK_FLAGS = /ignore:4006
